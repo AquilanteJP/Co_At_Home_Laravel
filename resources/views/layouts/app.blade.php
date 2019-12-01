@@ -18,29 +18,62 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/64db3b546b.js"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
+        <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top py-0 shadow-sm">
+          <a class="navbar-brand py-0" href="./logIn.php">
+            <img src="./img/logo-DH.png" width="225" height="70" alt="">
+          </a>
+          <div class="d-flex flex-row justify-content-end">
+           @guest
+            <div class="d-flex flex-row justify-content-end">
+              <div class="px-3">
+                <a class="text-decoration-none text-secondary" href="#preguntas">Preguntas</a>
+              </div>
+              <div class="px-3">
+                <a class="text-decoration-none text-secondary" href="#nosotros">Nosotros</a>
+              </div>
+              <div class="px-3">
+                <a class="text-decoration-none text-secondary" href="#contacto">Contacto</a>
+              </div>
+            </div>
+            <div class="w-75">
+              <div class="w-50 text-right">
+                <a class="text-decoration-none text-secondary"href="./registro.php">Registrate</a>
+              </div>
+            </div>
+           @else
+             <div class="px-3">
+               <a class="text-decoration-none text-secondary" href="inicio.php">Inicio</a>
+             </div>
+             <div class="px-3">
+               <a class="text-decoration-none text-secondary" href="profile.php">Mi Perfil</a>
+             </div>
+             <div class="px-3">
+               <a class="text-decoration-none text-secondary" href="#">Mis Cursos</a>
+             </div>
+             <div class="px-3">
+               <a class="text-decoration-none text-secondary" href="misAmigos.php">Mis Amigos</a>
+             </div>
+           </div>
+           <div class="px-3  d-flex flex-row justify-content-end flex-grow-1">
+             <div class="pl-5">
+               <form class="form-inline mb-0">
+                 <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
+                 <button type="submit" class="m-auto botonJuan rounded py-1 d-flex flex-wrap justify-content-center">Buscar</button>
+               </form>
+             </div>
+             <div class="pl-3 pt-1">
+               <a class="text-decoration-none text-secondary" href="logOut.php">Logout</a>
+             </div>
+           </div>
+           @endguest
+        </nav>
+                      {{--  @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -70,9 +103,7 @@
                         @endguest
                     </ul>
                 </div>
-            </div>
-        </nav>
-
+               --}}
         <main class="py-4">
             @yield('content')
         </main>
@@ -80,14 +111,14 @@
           <div class="d-flex justify-content-around flex-wrap">
             <div class="col-lg-3 col-md-12 col-sm-12 text-white text-justify">
               <h6 id="nosotros">Nosotros</h6>
-              <hr class="colorHr">
+              <hr class="">
               <p>
                 <small class=""> Somos una red social encargada de conectarte con el dia a dia de Digital House, encontra tus contactos, tus clases y tus profesores, todo en un solo lugar.</small>
               </p>
             </div>
             <div class="col-lg-2 col-md-12 col-sm-12 text-white">
               <h6>Nuestras Redes</h6>
-              <hr class="colorHr">
+              <hr class="">
               <div class="mb-2">
                 <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
                 <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
@@ -99,7 +130,7 @@
             </div>
             <div class="col-lg-7 col-md-12 col-sm-12 text-white text-justify">
               <h6 id="contacto">Contactanos</h6>
-              <hr class="colorHr">
+              <hr class="">
               <p>
                 <small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                   commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small>
@@ -107,7 +138,7 @@
             </div>
           </div>
           <div>
-            <hr class="colorHr">
+            <hr class="">
               <small>todos los derechos reservados</small>
           </div>
         </footer>
