@@ -17,7 +17,9 @@ class LoginController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
+    public function irInicio(){
+      return view('/inicio');
+    }
     use AuthenticatesUsers;
 
     /**
@@ -25,7 +27,9 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    // protected $redirectTo = '/inicio';
+
+
 
     /**
      * Create a new controller instance.

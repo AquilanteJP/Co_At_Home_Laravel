@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/footer.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -106,7 +107,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <footer class="position-static col-12 pt-4 ">
+        <footer class="position-static col-12 pt-4 footerJuan">
           <div class="d-flex justify-content-around flex-wrap">
             <div class="col-lg-3 col-md-12 col-sm-12 text-white text-justify">
               <h6 id="nosotros">Nosotros</h6>
@@ -119,7 +120,7 @@
               <h6>Nuestras Redes</h6>
               <hr class="">
               <div class="mb-2">
-                <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
+                <i><img class="icons" src='img/icons/logoFacebook.png' alt=""></i>
                 <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
               </div>
               <div class="">
