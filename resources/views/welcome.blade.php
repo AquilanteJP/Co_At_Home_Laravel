@@ -19,33 +19,51 @@
     <h2 class="	d-md-none d-lg-none subTitulo">Colearning at Home</h2>
     <br>
     <h5>Log In</h5>
-    <div class="w-100">
-      <?php if(isset($erroresLogIn)):?>
-              <ul class="alert alert-danger">
-                <?php foreach ($erroresLogIn as $value) :?>
-                    <li><small><?=$value;?></small></li>
-                <?php endforeach;?>
-              </ul>
-      <?php endif;?>
-    </div>
-    <form class="p-3" method="POST" action="{{route("/entrar")}}">
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" value="" class="form-control" name="email" id="email" placeholder="Email">
+      <div class="">
+        <form method="POST" action="{{ route('login') }}">
+          @csrf
+          <div class="form-group">
+            <label for="email">Email</label>
+            <div class="">
+              <input type="email" value="" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" id="email" required placeholder="Email">
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                  <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <div class="">
+              <input type="password" value="" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" id="password" required placeholder="Contraseña">
+              @error('password')
+              <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+              </span>
+              @enderror
+            </div>
+          </div>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" name="recuerdame" id="recuerdame">
+            <label class="form-check-label" for="recuerdame">Recuerdame</label>
+          </div>
+          <div class="form-group row mb-0">
+            <div class="mx-3">
+              <button type="submit" class="btn btn-primary">Entrar</button>
+                @if (Route::has('password.request'))
+                <a class="btn btn-link" href="{{ route('password.request') }}">¿Olvidaste tu contraseña?<a>
+                @endif
+            </div>
+          </div>
+          <br>
+          <div class="form-group row mb-0">
+            <div class="col-md-8 offset-md-4">
+              <p>¿Todavía no estas registrado? <a href="{{ route('register') }}">Registrate.</a></p>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="password">Contraseña</label>
-        <input type="password" class="form-control" name="password" id="password" placeholder="Introduce tu contraseña">
-      </div>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" name="recuerdame" id="recuerdame">
-        <label class="form-check-label" for="recuerdame">Recuerdame</label>
-      </div>
-      <button type="submit" class="w-75 m-auto rounded py-2 botonJuan">Entrar</button>
-    </form>
-    <a href="registro.php">Registrate</a>
-    <hr>
-    <br>
     <div>
       <li class="noPunto"><a class="opcionesfooter" href="#preguntas">Preguntas Frecuentes</a></li>
       <li class="noPunto"><a class="opcionesfooter" href="#nosotros">Nosotros</a></li>
