@@ -1,0 +1,26 @@
+/*FOOTER----------------------------------------------------------------------*/
+.footerJuan{
+  background-color: black;
+  clear: none;
+  text-align: center;
+  padding: 1em;
+}
+
+.redes {
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+}
+.icons:hover {
+  border-color: #D0103A;
+}
+.icons {
+  width: 2em;
+  border: 2px solid white;
+  border-radius: 50%;
+/*  margin-left: 5%;
+  margin-right: 5%;*/
+}
+.colorHr {
+  background-color: rgba(238, 162, 154);
+}
+/*FOOTER----------------------------------------------------------------------*/
