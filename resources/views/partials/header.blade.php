@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-md py-0 shadow-sm border" id="navegador">
   <div id="mySidebar" class="sidebar">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     @guest
     <a class="" href="#logIn">Log In</a>
     <br>
@@ -18,7 +18,7 @@
     <a class="" href="logOut.php">Logout</a>
     @endguest
   </div>
-  <img id="logo1" class="d-none d-xl-block" src="./img/Logo-DH.png" width="225" height="70" alt="">
+  <img id="logo1" class="d-none d-xl-block" src="./img/logo-DH.png" width="225" height="70" alt="">
   <button class="navbar-toggler " type="button" onclick="openNav()" aria-label="Toggle navigation">
     <i class="fas fa-list py-3"></i>
   </button>
