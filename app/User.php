@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getAmigosUsuario(){
+      return $this->hasMany(Amigo::class,"user_id","id");
+    }
+
+    public function getPostsUsuario(){
+      return $this->hasMany(Post::class,"user_id","id");
+    }
+
+    public function getPostsToDo(){
+      return $this->hasMany(ToDo::class,"user_id","id");
+    }
 }
