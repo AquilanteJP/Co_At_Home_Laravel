@@ -1,0 +1,11 @@
+.welcome{
+  z-index: -1;
+}
+.fondoJuan {
+  /*height: 100vh;*/
+  background-image: url(../img/profesores1DH.jpg);
+  background-size: cover;
+}
+.fondo{
+  background-color: rgba(90, 90, 90, 0.6);
+}

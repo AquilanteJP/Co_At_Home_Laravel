@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md py-0 shadow-sm border" id="navegador">
+<nav class="navbar navbar-expand-md py-0 shadow-sm border bg-light" id="navegador">
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     @guest
