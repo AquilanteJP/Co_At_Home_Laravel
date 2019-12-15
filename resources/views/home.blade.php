@@ -5,11 +5,11 @@
   <div class="col-lg-2 mr-5 d-none d-xl-block">
     <div class="position-fixed align-self-start col-lg-2 p-2 border bg-light rounded">
       <img class="w-50 mb-3 rounded-circle border border-secondary" src="./img/icons/logoGoogle.png" alt="">
-      <h5 class="pl-2">Juan Stroman</h5>
+      <h5 class="pl-2">{{Auth::user()->nombres." ".Auth::user()->apellidos}}</h5>
       <hr>
     </div>
   </div>
-  <div class="col-lg-6 col-md-12 col-sm-12">
+  <div class="col-lg-6 col-md-12 col-sm-12 p-0">
     <div class="card p-0 mb-3">
         <div class="card-header "> <h5 class="my-0">{{ __('Comparte con nosotros') }}</h5> </div>
 
@@ -55,7 +55,7 @@
 
       @foreach ($posts as $post)
         <div class="card border mb-3">
-          <div class="card-header">{{ $post->user_id }}</div>
+          <div class="card-header">{{ $post->nombres." ".$post->apellidos }}</div>
           <div class="card-body">
             <h5 class="card-title">{{ $post->titulo }}</h5>
             <p class="card-text">{{ $post->contenido }}</p>
