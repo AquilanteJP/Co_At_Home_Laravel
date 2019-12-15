@@ -14,7 +14,19 @@
     <a class="" href="misAmigos.php">Mis Amigos</a>
     <a class="" href="#buscar">Buscar</a>
     <br>
-    <a class="" href="logOut.php">Logout</a>
+    <a class="" href="{{ route('logout') }}"
+       onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+       {{ __('Logout') }}
+    </a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+          @csrf
+    </form>
+    <form class="form-inline ml-3">
+      @csrf
+      <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
+      <button type="submit" class="m-auto botonJuan rounded py-1 d-flex flex-wrap justify-content-center">Buscar</button>
+    </form>
     @endguest
   </div>
   <img id="logo1" class="d-none d-xl-block" src="./img/logo-DH.png" width="225" height="70" alt="">
@@ -29,17 +41,27 @@
       <a class="text-decoration-none text-secondary ml-3" href="#contacto">Contacto</a>
       <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}">Registrate</a>
     @else
-    <a class="text-decoration-none text-secondary ml-3" href="inicio.php">Inicio</a>
-    <a class="text-decoration-none text-secondary ml-3" href="profile.php">Mi Perfil</a>
-    <a class="text-decoration-none text-secondary ml-3" href="#">Mis Cursos</a>
-    <a class="text-decoration-none text-secondary ml-3" href="misAmigos.php">Mis Amigos</a>
-    <form class="form-inline mb-0">
-      <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
-      <button type="submit" class="m-auto botonJuan rounded py-1 d-flex flex-wrap justify-content-center">Buscar</button>
-    </form>
-    <div class="pl-3 pt-1">
-      <a class="text-decoration-none text-secondary" href="logOut.php">Logout</a>
-    </div>
-  @endguest
+      <a class="text-decoration-none text-secondary ml-3" href="inicio.php">Inicio</a>
+      <a class="text-decoration-none text-secondary ml-3" href="profile.php">Mi Perfil</a>
+      <a class="text-decoration-none text-secondary ml-3" href="#">Mis Cursos</a>
+      <a class="text-decoration-none text-secondary ml-3" href="misAmigos.php">Mis Amigos</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('logout') }}"
+         onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+         {{ __('Logout') }}
+      </a>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+      </form>
+      <form class="form-inline ml-3">
+        @csrf
+        <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
+        <button type="submit" class="m-auto botonJuan rounded py-1 d-flex flex-wrap justify-content-center">Buscar</button>
+      </form>
+      <!--<a id="" class="nav-link dropdown-tog" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+              <img width="40px" style="border-radius:40%" src="{{--asset('storage/avatars/'.Auth::user()->avatar)--}}" alt="Avatar">
+          {{-- Auth::user()->nombres." ".Auth::user()->apellidos --}} <span class="caret"></span>
+      </a>-->
+    @endguest
   </div>
 </nav>
