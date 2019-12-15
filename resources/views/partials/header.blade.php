@@ -2,12 +2,11 @@
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     @guest
-    <a class="" href="#logIn">Log In</a>
-    <br>
+    <a class="" href="{{ route('login') }}">Log In</a>
     <a class="" href="#preguntas">Preguntas</a>
     <a class="" href="#nosotros">Nosotros</a>
     <a class="" href="#contacto">Contacto</a>
-    <a class=""href="./registro.php">Registrate</a>
+    <a class="" href="{{ route('register') }}">Registrate</a>
     @else
     <a class="" href="inicio.php">Inicio</a>
     <a class="" href="profile.php">Mi Perfil</a>
@@ -24,11 +23,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarGrande">
     @guest
-      <a class="text-decoration-none text-secondary ml-3" href="#logIn">Log In</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('login') }}">Log In</a>
       <a class="text-decoration-none text-secondary ml-3" href="#preguntas">Preguntas</a>
       <a class="text-decoration-none text-secondary ml-3" href="#nosotros">Nosotros</a>
       <a class="text-decoration-none text-secondary ml-3" href="#contacto">Contacto</a>
-      <a class="text-decoration-none text-secondary ml-3"href="./registro.php">Registrate</a>
+      <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}">Registrate</a>
     @else
     <a class="text-decoration-none text-secondary ml-3" href="inicio.php">Inicio</a>
     <a class="text-decoration-none text-secondary ml-3" href="profile.php">Mi Perfil</a>
