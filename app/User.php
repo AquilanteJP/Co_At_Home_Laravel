@@ -35,6 +35,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function getIdAttribute($value)
+    {
+        return ucfirst($value);
+    }
+
     public function getAmigosUsuario(){
       return $this->hasMany(Amigo::class,"user_id","id");
     }

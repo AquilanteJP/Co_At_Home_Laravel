@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="d-flex flex-row flex-wrap">
-  <div class="col-lg-2 mr-5 d-none d-xl-block">
+<div class="d-flex flex-row flex-wrap justify-content-center">
+  {{-- <div class="col-lg-2 mr-5 d-none d-xl-block">
     <div class="position-fixed align-self-start col-lg-2 p-2 border bg-light rounded">
       <img class="w-50 mb-3 rounded-circle border border-secondary" src="./img/icons/logoGoogle.png" alt="">
       <h5 class="pl-2">{{Auth::user()->nombres." ".Auth::user()->apellidos}}</h5>
       <hr>
     </div>
-  </div>
+  </div> --}}
   <div class="col-lg-6 col-md-12 col-sm-12 p-0">
     <div class="card p-0 mb-3">
         <div class="card-header "> <h5 class="my-0">{{ __('Comparte con nosotros') }}</h5> </div>

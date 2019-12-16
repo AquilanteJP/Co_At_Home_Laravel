@@ -11,7 +11,7 @@
     <a class="" href="{{ route('register') }}">Registrate</a>
     @else
     <a class="" href="inicio.php">Inicio</a>
-    <a class="" href=" ">Mi Perfil</a>
+    <a class="" href="{{ route('profile')}} ">Mi Perfil</a>
     <a class="" href="#">Mis Cursos</a>
     <a class="" href="misAmigos.php">Mis Amigos</a>
     <a class="" href="#buscar">Buscar</a>
@@ -46,7 +46,7 @@
       <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}">Registrate</a>
     @else
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('home') }}">Inicio</a>
-      <a class="text-decoration-none text-secondary ml-3" href="profile.php">Mi Perfil</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('profile') }}">Mi Perfil</a>
       <a class="text-decoration-none text-secondary ml-3" href="#">Mis Cursos</a>
       <a class="text-decoration-none text-secondary ml-3" href="misAmigos.php">Mis Amigos</a>
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('logout') }}"

@@ -25,7 +25,7 @@
             {{-- <div class="">
               <img src="" alt="">
             </div> --}}
-            {{ $post->nombres." ".$post->apellidos }}
+            {{ Auth::user()->nombres." ".Auth::user()->apellidos }}
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ $post->titulo }}</h5>
