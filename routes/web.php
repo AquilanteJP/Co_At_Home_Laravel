@@ -20,5 +20,7 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/home','PostController@index')->name('home');
 Route::get('/profile', 'PostController@userPosts')->name('profile');
-
+Route::get('/test', function(){
+  return Auth::user();
+});
 //Route::get('/','AdministrarPeliculasController@index')->name('administrarPelicula')->middleware('admin');

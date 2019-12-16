@@ -1,12 +1,5 @@
 <footer class="col-12 pt-4 footerJuan">
   <div class="d-flex justify-content-around flex-wrap">
-    <div class="col-lg-3 col-md-12 col-sm-12 text-white text-justify">
-      <h6 id="nosotros">Nosotros</h6>
-      <hr class="colorHr">
-      <p>
-        <small class=""> Somos una red social encargada de conectarte con el dia a dia de Digital House, encontra tus contactos, tus clases y tus profesores, todo en un solo lugar.</small>
-      </p>
-    </div>
     <div class="col-lg-2 col-md-12 col-sm-12 text-white">
       <h6>Nuestras Redes</h6>
       <hr class="colorHr">

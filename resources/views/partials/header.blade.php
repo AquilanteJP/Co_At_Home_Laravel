@@ -5,15 +5,12 @@
       <a class="" href="{{ route('welcome') }}">Inicio</a>
       <br>
     <a class="" href="{{ route('login') }}">Log In</a>
-    {{-- <a class="" href="#preguntas">Preguntas</a>
-    <a class="" href="#nosotros">Nosotros</a>
-    <a class="" href="#contacto">Contacto</a> --}}
     <a class="" href="{{ route('register') }}">Registrate</a>
     @else
-    <a class="" href="inicio.php">Inicio</a>
+    <a class="" href="{{ route('home') }}">Inicio</a>
     <a class="" href="{{ route('profile')}} ">Mi Perfil</a>
     <a class="" href="#">Mis Cursos</a>
-    <a class="" href="misAmigos.php">Mis Amigos</a>
+    <a class="" href="#">Mis Amigos</a>
     <a class="" href="#buscar">Buscar</a>
     <br>
     <a class="" href="{{ route('logout') }}"
@@ -40,15 +37,12 @@
     @guest
 
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('login') }}">Log In</a>
-      {{-- <a class="text-decoration-none text-secondary ml-3" href="#preguntas">Preguntas</a>
-      <a class="text-decoration-none text-secondary ml-3" href="#nosotros">Nosotros</a>
-      <a class="text-decoration-none text-secondary ml-3" href="#contacto">Contacto</a> --}}
       <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}">Registrate</a>
     @else
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('home') }}">Inicio</a>
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('profile') }}">Mi Perfil</a>
       <a class="text-decoration-none text-secondary ml-3" href="#">Mis Cursos</a>
-      <a class="text-decoration-none text-secondary ml-3" href="misAmigos.php">Mis Amigos</a>
+      <a class="text-decoration-none text-secondary ml-3" href="#">Mis Amigos</a>
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('logout') }}"
          onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

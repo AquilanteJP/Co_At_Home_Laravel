@@ -54,7 +54,7 @@
       {{-- listado de posts --}}
 
       @foreach ($posts as $post)
-
+      
         <div class="card border mb-3">
           <div class="card-header">
             {{-- <div class="">

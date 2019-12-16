@@ -19,7 +19,7 @@ class PostController extends Controller
   }
 
   public function userPosts(){
-
+    
      $id = Auth::user()->id;
      $posts = DB::table('posts')
                             ->where('user_id', '=', $id)
