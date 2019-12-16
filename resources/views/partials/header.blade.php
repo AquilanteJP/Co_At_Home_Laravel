@@ -11,7 +11,7 @@
     <a class="" href="{{ route('register') }}">Registrate</a>
     @else
     <a class="" href="inicio.php">Inicio</a>
-    <a class="" href="profile.php">Mi Perfil</a>
+    <a class="" href=" ">Mi Perfil</a>
     <a class="" href="#">Mis Cursos</a>
     <a class="" href="misAmigos.php">Mis Amigos</a>
     <a class="" href="#buscar">Buscar</a>

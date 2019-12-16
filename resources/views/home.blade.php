@@ -56,7 +56,12 @@
       @foreach ($posts as $post)
 
         <div class="card border mb-3">
-          <div class="card-header">{{ $post->nombres." ".$post->apellidos }}</div>
+          <div class="card-header">
+            {{-- <div class="">
+              <img src="" alt="">
+            </div> --}}
+            {{ $post->nombres." ".$post->apellidos }}
+          </div>
           <div class="card-body">
             <h5 class="card-title">{{ $post->titulo }}</h5>
             <p class="card-text">{{ $post->contenido }}</p>
