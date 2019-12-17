@@ -54,16 +54,26 @@
       {{-- listado de posts --}}
 
       @foreach ($posts as $post)
-      
+
         <div class="card border mb-3">
-          <div class="card-header">
-            {{-- <div class="">
-              <img src="" alt="">
-            </div> --}}
-            {{ $post->nombres." ".$post->apellidos }}
+          <div class="card-header d-flex">
+            <div class="w-25">
+              <div class="w-50">
+                <img src="storage\avatars\{{ Auth::user()->foto_usuario }}" class="card-img rounded align-middle">
+              </div>
+
+            </div>
+            <div class="w-75 d-flex align-items-end">
+              {{ $post->nombres." ".$post->apellidos }}
+            </div>
+
           </div>
           <div class="card-body">
-            <h5 class="card-title">{{ $post->titulo }}</h5>
+
+
+              <h5 class="card-title">{{ $post->titulo }}</h5>
+
+
             <p class="card-text">{{ $post->contenido }}</p>
           </div>
           <div class="card-footer">

@@ -22,6 +22,6 @@ Route::get('/home','PostController@index')->name('home');
 
 Route::get('/profile', 'PostController@userPosts')->name('profile');
 Route::get('/test', function(){
-  return Auth::user();
+  return Auth::user()->foto_usuario;
 });
 //Route::get('/','AdministrarPeliculasController@index')->name('administrarPelicula')->middleware('admin');

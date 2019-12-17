@@ -7,7 +7,7 @@
   <div class="d-flex flex-wrap justify-content-center">
     <div class="row no-gutters mr-3 col-lg-3 col-md-12 col-sm-12">
       <div class="w-25 text-center">
-        <img src="./img/icons/logoGoogle.png" class="card-img rounded align-middle" alt="...">
+        <img src="storage\avatars\{{ Auth::user()->foto_usuario }}" class="card-img rounded align-middle" alt="...">
       </div>
       <div class="w-75">
         <div class="card-body">
