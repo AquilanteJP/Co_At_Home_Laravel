@@ -57,23 +57,17 @@
 
         <div class="card border mb-3">
           <div class="card-header d-flex">
-            <div class="w-25">
-              <div class="w-50">
-                <img src="storage\avatars\{{ Auth::user()->foto_usuario }}" class="card-img rounded align-middle">
-              </div>
-
+            <div class="w-25 mr-3">
+                <img src="storage\avatars\{{ $post->foto_usuario }}" alt="" class="w-50 d-none d-lg-block rounded-circle">
+                <img src="storage\avatars\{{ $post->foto_usuario }}" alt="" class="w-100 d-lg-none d-sm-block rounded-circle">
             </div>
-            <div class="w-75 d-flex align-items-end">
-              {{ $post->nombres." ".$post->apellidos }}
+            <div class="w-75 pt-2 d-flex align-items-end list-group list-group-flush">
+              <a href="#" class="list-group-item-action"><h5 class="font-weight-bolder">{{ $post->nombres." ".$post->apellidos }}</h5></a>
+              <a href="#" class="list-group-item-action"><h6 class="font-weight-bolder muted">Curso Activo</h6></a>
             </div>
-
           </div>
           <div class="card-body">
-
-
-              <h5 class="card-title">{{ $post->titulo }}</h5>
-
-
+            <h5 class="card-title">{{ $post->titulo }}</h5>
             <p class="card-text">{{ $post->contenido }}</p>
           </div>
           <div class="card-footer">
