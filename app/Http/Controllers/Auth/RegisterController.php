@@ -95,7 +95,7 @@ class RegisterController extends Controller
             'genero' => $data['genero'],
             'tipo_registro' => $data['tipoRegistro'],
             'password' => Hash::make($data['password']),
-            'foto_usuario' => "generic"
+            'foto_usuario' => "generic.jpg"
         ]);
     }
 }
