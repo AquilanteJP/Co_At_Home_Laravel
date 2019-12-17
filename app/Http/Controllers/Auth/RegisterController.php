@@ -69,8 +69,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-    
+
       if (isset($data['foto_usuario'])) {
+        $request = request();
+        $imagen = $request->file('foto_usuario');
+        $nombreArchivo = uniqid($data['email'].'-'). '.' . $imagen->extension();
+        $imagen->storePubliclyAs('public/avatars',$nombreArchivo);
         return User::create([
             'nombres' => $data['nombres'],
             'apellidos' => $data['apellidos'],
@@ -79,7 +83,7 @@ class RegisterController extends Controller
             'genero' => $data['genero'],
             'tipo_registro' => $data['tipoRegistro'],
             'password' => Hash::make($data['password']),
-            'foto_usuario' => $data['email'].$data['foto_usuario']
+            'foto_usuario' => $nombreArchivo
         ]);
       } else {
 
