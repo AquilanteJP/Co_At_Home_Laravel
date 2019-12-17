@@ -5,10 +5,10 @@ function borrarPost(id){
 })
   .then((willDelete) => {
     if (willDelete) {
-      console.log(idPostBorrar)
       swal("borrado amigo", {
         icon: "success",
       });
+      //return view('borradoDePost')->with('idPostBorrar', idPostBorrar);
     }
   });
 }

@@ -65,7 +65,7 @@
               <a href="#" class="list-group-item-action"><h6 class="font-weight-bolder muted">Curso Activo</h6></a>
             </div>
             <div class="w-25">
-              @if ($post->id !== Auth::user()->id)
+              @if ($post->id == Auth::user()->id)
                 <h4 class="text-right"><a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted">x</a></h4>
                 <h4 id="ejemplo"></h4>
               @endif

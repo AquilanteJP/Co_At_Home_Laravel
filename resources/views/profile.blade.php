@@ -25,9 +25,15 @@
                 <img src="storage\avatars\{{ $post->foto_usuario }}" alt="" class="w-50 d-none d-lg-block rounded-circle">
                 <img src="storage\avatars\{{ $post->foto_usuario }}" alt="" class="w-100 d-lg-none d-sm-block rounded-circle">
             </div>
-            <div class="w-75 pt-2 d-flex align-items-end list-group list-group-flush">
+            <div class="w-50 pt-2 d-flex align-items-end list-group list-group-flush">
               <a href="#" class="list-group-item-action"><h5 class="font-weight-bolder">{{ $post->nombres." ".$post->apellidos }}</h5></a>
               <a href="#" class="list-group-item-action"><h6 class="font-weight-bolder muted">Curso Activo</h6></a>
+            </div>
+            <div class="w-25">
+              @if ($post->id == Auth::user()->id)
+                <h4 class="text-right"><a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted">x</a></h4>
+                <h4 id="ejemplo"></h4>
+              @endif
             </div>
           </div>
           <div class="card-body">
@@ -45,7 +51,7 @@
               @endif
             </small>
           </div>
-        </div
+        </div>
       @endforeach
     </div>
   </div>
