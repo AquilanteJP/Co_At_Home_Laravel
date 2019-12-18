@@ -18,7 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home','PostController@index')->name('home');
+Route::get('/home','PostController@index')->name('home')->middleware('auth');
 
 Route::get('/profile', 'PostController@userPosts')->name('profile');
 //No funciona todavia
@@ -27,4 +27,5 @@ Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoD
 Route::get('/test', function(){
   return Auth::user()->foto_usuario;
 });
-//Route::get('/','AdministrarPeliculasController@index')->name('administrarPelicula')->middleware('admin');
+
+Route::post('/crearPost', 'PostController@crearPost')->name('crearPost');

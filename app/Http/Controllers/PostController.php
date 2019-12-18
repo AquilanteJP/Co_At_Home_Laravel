@@ -41,4 +41,25 @@ class PostController extends Controller
   //                          ->get();
   //   return view('profile')->with('posts', $informacionPosts);
   // }
+
+
+  public function crearPost(Request $request){
+
+    $reglasValidacion = [
+      'titulo'=> 'required',
+      'contenido' => 'required',
+      'user_id' => 'required'
+    ];
+    $mensajesError = [
+        'titulo' => 'El título del post no puede estar vacío.',
+        'contenido' => 'El contenido del post no puede estar vacío.'
+
+    ];
+
+    $this->validate($request,$reglasValidacion,$mensajesError);
+    //dd(Auth::user()->id);
+    $postNuevo = new Post($request->all());
+    $postNuevo->save();
+    return redirect('/home');
+  }
 }

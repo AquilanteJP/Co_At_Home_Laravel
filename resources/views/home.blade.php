@@ -14,7 +14,7 @@
         <div class="card-header "> <h5 class="my-0">{{ __('Comparte con nosotros') }}</h5> </div>
 
         <div class="card-body">
-            <form method="POST" action="" enctype="multipart/form-data" class="">
+            <form method="POST" action="{{ route('crearPost') }}" enctype="multipart/form-data" class="">
                 @csrf
                 <div class="form-group column">
                     <label for="titulo" class=" col-form-label text-md-right">{{ __('Titulo') }} </label>
@@ -38,6 +38,8 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
+
+                        <input id="user_id" type="hidden" name="user_id" value={{  Auth::user()->id }}>
                     </div>
                 </div>
                 <div class="form-group mb-0">
