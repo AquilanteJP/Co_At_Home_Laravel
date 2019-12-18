@@ -12,20 +12,28 @@
     <a class="" href="#">Mis Cursos</a>
     <a class="" href="#">Mis Amigos</a>
     <a class="" href="#buscar">Buscar</a>
+    <div class="input-group mx-3">
+      @csrf
+      <input type="text" class="form-control" placeholder="Usuario, Curso..." aria-label="Recipient's username" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+    </div>
+    </div>
+    {{-- <form class="form-inline ml-3">
+
+      <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
+      <button type="submit" class="m-auto botonJuan rounded py-1 pr-3 d-flex flex-wrap justify-content-center">Buscar</button>
+    </form> --}}
     <br>
     <a class="" href="{{ route('logout') }}"
        onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
        {{ __('Logout') }}
     </a>
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
-    </form>
-    <form class="form-inline ml-3">
-      @csrf
-      <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
-      <button type="submit" class="m-auto botonJuan rounded py-1 d-flex flex-wrap justify-content-center">Buscar</button>
-    </form>
+    </form> --}}
+
     @endguest
   </div>
 

@@ -22,7 +22,7 @@ Route::get('/home','PostController@index')->name('home');
 
 Route::get('/profile', 'PostController@userPosts')->name('profile');
 //No funciona todavia
-Route::post('borradoDePost','PostController@borradoDePost')->name('borradoDePost');
+Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoDePost');
 
 Route::get('/test', function(){
   return Auth::user()->foto_usuario;

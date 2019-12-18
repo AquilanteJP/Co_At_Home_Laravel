@@ -54,7 +54,7 @@
       {{-- listado de posts --}}
 
       @foreach ($posts as $post)
-        <div class="card border mb-3">
+        <div class="card border mb-3 shadow-lg">
           <div class="card-header d-flex">
             <div class="w-25 mr-3">
                 <img src="storage\avatars\{{ $post->foto_usuario }}" alt="" class="w-50 d-none d-lg-block rounded-circle">
@@ -65,8 +65,8 @@
               <a href="#" class="list-group-item-action"><h6 class="font-weight-bolder muted">Curso Activo</h6></a>
             </div>
             <div class="w-25">
-              @if ($post->id == Auth::user()->id)
-                <h4 class="text-right"><a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted">x</a></h4>
+              @if ($post->id !== Auth::user()->id)
+                <h4 class="text-right"><a href="javascript:void(0)" data-id="{{$post->id}}" onclick="borrarPost(this)" class="text-muted">x</a></h4>
                 <h4 id="ejemplo"></h4>
               @endif
             </div>

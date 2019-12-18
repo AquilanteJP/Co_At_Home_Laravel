@@ -26,10 +26,10 @@
     <link href="{{ asset('css/register.css') }}" rel="stylesheet">
 
 </head>
-<body class="pt-5 bg-white">
-    <div id="app">
+<body class="pt-5 bg-white ">
+    <div id="app" class="">
       @include('partials.header')
-      <main class="pt-5" id="main">
+      <main class="pt-5 colorFondo" id="main">
         @yield('content')
       </main>
       @include('partials.footer')

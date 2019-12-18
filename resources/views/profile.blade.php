@@ -5,7 +5,7 @@
 
 
   <div class="d-flex flex-wrap justify-content-center">
-    <div class="row no-gutters mr-3 col-lg-3 col-md-12 col-sm-12">
+    <div class="row bg-light rounded pt-3 no-gutters mr-3 col-lg-3 col-md-12 col-sm-12">
       <div class="w-25 text-center">
         <img src="storage\avatars\{{ Auth::user()->foto_usuario }}" class="card-img rounded-circle align-middle" alt="...">
       </div>

@@ -28,7 +28,12 @@ class PostController extends Controller
   }
 
   public function borradoDePost($id){
-    return "borrado amigo".$id;
+    $varBorrado = DB::table('posts')
+                    ->where('id',$id)
+                    ->delete();
+
+    return response()->json($varBorrado);
+
   }
   //   $informacionPosts = DB::table('users')
   //                          ->select('users.nombres','users.apellidos','users.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like')
