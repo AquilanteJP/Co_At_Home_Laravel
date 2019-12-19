@@ -40,6 +40,7 @@
                         @enderror
 
                         <input id="user_id" type="hidden" name="user_id" value={{  Auth::user()->id }}>
+                        <input id="like" type="hidden" name="like" value=0>
                     </div>
                 </div>
                 <div class="form-group mb-0">
@@ -56,7 +57,7 @@
       {{-- listado de posts --}}
 
       @foreach ($posts as $post)
-        <div class="card border mb-3 shadow-lg">
+        <div class="card border mb-3 shadow-lg" id="{{$post->id}}">
           <div class="card-header d-flex">
             <div class="w-25 mr-3">
                 <img src="storage\avatars\{{ $post->foto_usuario }}" alt="" class="w-50 d-none d-lg-block rounded-circle">
@@ -71,7 +72,7 @@
             <h5 class="card-title">{{ $post->titulo }}</h5>
             <p class="card-text">{{ $post->contenido }}</p>
           </div>
-          <div class="card-footer d-flex">
+          <div class="card-footer d-flex justify-content-between">
             <small class="text-muted">
               @if ($post->like == "0" || $post->like == null)
                 {{"A nadie le gusta esto"}}
@@ -81,28 +82,22 @@
                 {{"A ".$post->like." personas le gusta esto"}}
               @endif
             </small>
-            <div class="w-100 ml-3 d-flex">
-              <div class="col-sm-4">
-                <form class="" action="" method="post">
-                  <input type="hidden" name="idPost" value="{{$post->id}}">
-                  <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
-                </form>
+              <div class="">
+                <a href="javascript:void(0)" class="" onclick="darMg({{$post->id}}, {{$post->like}})"><button class="btn btn-outline-primary" name="">Me Gusta!</button></a>
               </div>
-
                 @if ($post->user_id == Auth::user()->id)
-                <div class="col-sm-4">
+                <div class="">
                   <form class="" action="editarPost.php" method="post">
                     <input type="hidden" id="id" name="id" value="{{$post->id}}">
                     <button type="submit" class="btn btn-outline-warning" name="editar={{$post->id}}"><i class="fas fa-pen"></i></button>
                   </form>
                 </div>
-                <div class="col-sm-4">
-                  <h4 class="text-right"><a href="javascript:void(0)" data-id="{{$post->id}}" onclick="borrarPost(this)" class="text-muted"><i class="fas fa-trash-alt"></i></a></h4>
-                  <h4 id="ejemplo"></h4>
+                <div class="d-flex align-items-end">
+                  <h4 class="mb-0"><a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted"><i class="fas fa-trash-alt"></i></a></h4>
+
                 </div>
                 @else
                 @endif
-            </div>
           </div>
         </div>
       @endforeach

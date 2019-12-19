@@ -22,8 +22,10 @@ class PostController extends Controller
 
      $id = Auth::user()->id;
      $posts = DB::table('posts')
-                            ->where('user_id', '=', $id)
-                            ->get();
+                ->select('users.nombres','users.apellidos','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
+                ->join('users','users.id','=','posts.user_id')
+                ->where('user_id', '=', $id)
+                ->get();
      return view('profile')->with('posts', $posts);
   }
 
@@ -35,13 +37,14 @@ class PostController extends Controller
     return response()->json($varBorrado);
 
   }
-  //   $informacionPosts = DB::table('users')
-  //                          ->select('users.nombres','users.apellidos','users.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like')
-  //                          ->join('posts','users.id','=','posts.user_id')
-  //                          ->get();
-  //   return view('profile')->with('posts', $informacionPosts);
-  // }
 
+  public function darMg($id, $likes){
+      $post = DB::table('posts')
+                ->where('id', $id)
+                ->update(['like' => $likes+1]);
+
+      return response()->json($post);
+  }
 
   public function crearPost(Request $request){
 
