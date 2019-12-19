@@ -12,7 +12,7 @@ class PostController extends Controller
 
   public function index(){
     $informacionPosts = DB::table('users')
-                           ->select('users.nombres','users.apellidos','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like')
+                           ->select('users.nombres','users.apellidos','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
                            ->join('posts','users.id','=','posts.user_id')
                            ->get();
     return view('home')->with('posts', $informacionPosts);

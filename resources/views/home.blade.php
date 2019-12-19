@@ -66,18 +66,12 @@
               <a href="#" class="list-group-item-action"><h5 class="font-weight-bolder">{{ $post->nombres." ".$post->apellidos }}</h5></a>
               <a href="#" class="list-group-item-action"><h6 class="font-weight-bolder muted">Curso Activo</h6></a>
             </div>
-            <div class="w-25">
-              @if ($post->id !== Auth::user()->id)
-                <h4 class="text-right"><a href="javascript:void(0)" data-id="{{$post->id}}" onclick="borrarPost(this)" class="text-muted">x</a></h4>
-                <h4 id="ejemplo"></h4>
-              @endif
-            </div>
           </div>
           <div class="card-body">
             <h5 class="card-title">{{ $post->titulo }}</h5>
             <p class="card-text">{{ $post->contenido }}</p>
           </div>
-          <div class="card-footer">
+          <div class="card-footer d-flex">
             <small class="text-muted">
               @if ($post->like == "0")
                 {{"A nadie le gusta esto"}}
@@ -87,6 +81,28 @@
                 {{"A ".$post->like." personas le gusta esto"}}
               @endif
             </small>
+            <div class="w-100 ml-3 d-flex">
+              <div class="col-sm-4">
+                <form class="" action="" method="post">
+                  <input type="hidden" name="idPost" value="{{$post->id}}">
+                  <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
+                </form>
+              </div>
+                
+                @if ($post->user_id == Auth::user()->id)
+                <div class="col-sm-4">
+                  <form class="" action="editarPost.php" method="post">
+                    <input type="hidden" id="id" name="id" value="{{$post->id}}">
+                    <button type="submit" class="btn btn-outline-warning" name="editar={{$post->id}}"><i class="fas fa-pen"></i></button>
+                  </form>
+                </div>
+                <div class="col-sm-4">
+                  <h4 class="text-right"><a href="javascript:void(0)" data-id="{{$post->id}}" onclick="borrarPost(this)" class="text-muted"><i class="fas fa-trash-alt"></i></a></h4>
+                  <h4 id="ejemplo"></h4>
+                </div>
+                @else
+                @endif
+            </div>
           </div>
         </div>
       @endforeach
