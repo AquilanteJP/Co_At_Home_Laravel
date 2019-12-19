@@ -73,7 +73,7 @@
           </div>
           <div class="card-footer d-flex">
             <small class="text-muted">
-              @if ($post->like == "0")
+              @if ($post->like == "0" || $post->like == null)
                 {{"A nadie le gusta esto"}}
               @elseif ($post->like == "1")
                 {{"A ".$post->like." persona le gusta esto"}}
@@ -88,7 +88,7 @@
                   <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
                 </form>
               </div>
-                
+
                 @if ($post->user_id == Auth::user()->id)
                 <div class="col-sm-4">
                   <form class="" action="editarPost.php" method="post">
