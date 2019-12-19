@@ -87,10 +87,7 @@
               </div>
                 @if ($post->user_id == Auth::user()->id)
                 <div class="">
-                  <form class="" action="editarPost.php" method="post">
-                    <input type="hidden" id="id" name="id" value="{{$post->id}}">
-                    <button type="submit" class="btn btn-outline-warning" name="editar={{$post->id}}"><i class="fas fa-pen"></i></button>
-                  </form>
+                  <h4 class="mb-0"><a href="/editarPost/{{$value->id}}"  class="text-muted"><i class="fas fa-pen"></i></a></h4>
                 </div>
                 <div class="d-flex align-items-end">
                   <h4 class="mb-0"><a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted"><i class="fas fa-trash-alt"></i></a></h4>

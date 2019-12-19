@@ -22,6 +22,7 @@ Route::get('/home','PostController@index')->name('home')->middleware('auth');
 
 Route::get('/profile', 'PostController@userPosts')->name('profile');
 //No funciona todavia
+Route::get('/editarPost/{id}','PostController@returnEditView')->name('editar');
 Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoDePost');
 Route::get('/darMg/{id}/{likes}','PostController@darMg')->name('darMg');
 

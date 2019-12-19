@@ -14,6 +14,7 @@ class PostController extends Controller
     $informacionPosts = DB::table('users')
                            ->select('users.nombres','users.apellidos','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
                            ->join('posts','users.id','=','posts.user_id')
+                           ->orderBy('posts.id','desc')
                            ->get();
     return view('home')->with('posts', $informacionPosts);
   }
@@ -64,5 +65,10 @@ class PostController extends Controller
     $postNuevo = new Post($request->all());
     $postNuevo->save();
     return redirect('/home');
+  }
+
+  public function returnEditView($id){
+    $post = Post::find($id);
+    return view('editarPost')->with('post',$post);
   }
 }
