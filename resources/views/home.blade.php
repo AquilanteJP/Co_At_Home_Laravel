@@ -65,7 +65,14 @@
             </div>
             <div class="w-50 pt-2 d-flex align-items-end list-group list-group-flush">
               <a href="#" class="list-group-item-action"><h5 class="font-weight-bolder">{{ $post->nombres." ".$post->apellidos }}</h5></a>
-              <a href="#" class="list-group-item-action"><h6 class="font-weight-bolder muted">Curso Activo</h6></a>
+              <a href="#" class="list-group-item-action"><h6 class="font-weight-bolder muted">
+                @if ($post->tipo_registro == "1")
+                {{"Docente"}}
+              @elseif ($post->tipo_registro == "2")
+                {{"No Docente"}}
+              @else
+                {{"Estudiante"}}
+              @endif</h6></a>
             </div>
           </div>
           <div class="card-body">
@@ -87,7 +94,7 @@
             </div>
             @if ($post->user_id == Auth::user()->id)
             <div class="d-flex align-items-center">
-              <a href="/editarPost/{{$post->id}}"  class="text-muted"><i class="far fa-edit"></i></a>
+              <a href="/editarPost{{$post->id}}"  class="text-muted"><i class="far fa-edit"></i></a>
             </div>
             <div class="d-flex align-items-center">
               <a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted"><i class="far fa-trash-alt"></i></a>

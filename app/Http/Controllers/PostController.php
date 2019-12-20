@@ -13,7 +13,7 @@ class PostController extends Controller
 
   public function index(){
     $informacionPosts = DB::table('users')
-                           ->select('users.nombres','users.apellidos','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
+                           ->select('users.nombres','users.apellidos', 'users.tipo_registro','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
                            ->join('posts','users.id','=','posts.user_id')
                            ->orderBy('posts.id','desc')
                            ->get();
@@ -24,7 +24,7 @@ class PostController extends Controller
 
      $id = Auth::user()->id;
      $posts = DB::table('posts')
-                ->select('users.nombres','users.apellidos','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
+                ->select('users.nombres','users.apellidos', 'users.tipo_registro','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
                 ->join('users','users.id','=','posts.user_id')
                 ->where('user_id', '=', $id)
                 ->orderBy('posts.id','desc')

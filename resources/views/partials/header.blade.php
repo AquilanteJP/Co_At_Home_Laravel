@@ -35,9 +35,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarGrande">
     @guest
+      <div class="w-100 d-flex justify-content-end">
+        <a class="text-decoration-none text-secondary ml-3" href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-2"></i>Log In</a>
+        <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}"><i class="fas fa-plus-square mr-2"></i>Registrate</a>
+      </div>
 
-      <a class="text-decoration-none text-secondary ml-3" href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-2"></i>Log In</a>
-      <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}"><i class="fas fa-plus-square mr-2"></i>Registrate</a>
     @else
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('home') }}"><i class="fas fa-home mr-2"></i>Inicio</a>
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('profile')}}"><i class="fas fa-user mr-2"></i>Mi Perfil</a>

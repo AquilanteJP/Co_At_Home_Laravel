@@ -39,5 +39,5 @@ function borrarPost(id){
      eliminar(datos, evento)
     //console.log(datos)
    })
-   
+
  }

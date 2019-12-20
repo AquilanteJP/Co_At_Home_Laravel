@@ -4,7 +4,17 @@
   <div class="d-flex flex-row flex-wrap justify-content-center">
     <div class="col-lg-6 col-md-12 col-sm-12 p-0">
       <div class="card p-0 mb-3">
-          <div class="card-header "> <h5 class="my-0">{{ __('Editar Post') }}</h5> </div>
+          <div class="card-header">
+            <div class="row">
+              <div class="w-75 pl-3">
+                <h5 class="my-0 w-50">{{ __('Editar Post') }}</h5>
+              </div>
+              <div class="w-25 pr-3 d-flex justify-content-end">
+                <a class="text-decoration-none text-secondary" href="{{ route('home') }}"><i class="fas fa-arrow-left"></i></a>
+              </div>
+            </div>
+
+          </div>
 
           <div class="card-body">
               <form method="POST" action="{{ route('actualizarPost') }}" enctype="multipart/form-data" class="">

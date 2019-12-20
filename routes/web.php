@@ -23,7 +23,7 @@ Route::get('/profile', 'PostController@userPosts')->name('profile')->middleware(
 
 //Rutas Post
 Route::post('/crearPost', 'PostController@crearPost')->name('crearPost')->middleware('auth');
-Route::get('/editarPost/{id}','PostController@returnEditView')->name('editar')->middleware('auth');
+Route::get('/editarPost{id}','PostController@returnEditView')->name('editar')->middleware('auth');
 Route::post('/actualizarPost','PostController@actualizarPost')->name('actualizarPost')->middleware('auth');
 Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoDePost')->middleware('auth');
 Route::get('/darMg/{id}/{likes}','PostController@darMg')->name('darMg')->middleware('auth');
