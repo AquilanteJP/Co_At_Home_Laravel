@@ -26,7 +26,7 @@
     <link href="{{ asset('css/register.css') }}" rel="stylesheet">
 
 </head>
-<body class="pt-5 bg-white ">
+<body class="pt-5 bg-white">
     <div id="app" class="">
       @include('partials.header')
       <main class="pt-5 colorFondo" id="main">

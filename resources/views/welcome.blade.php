@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+  <div class="d-flex flex-row flex-wrap justify-content-center">
     <section class="col-12">
       <div class="d-none d-xl-block jumbotron jumbotron-fluid p-4 p-md-5 text-white fondoJuan">
         <div class="col-md-6 px-0">
@@ -37,4 +38,5 @@
         </div>
       </div>
     </section>
+  </div>
 @endsection()

@@ -2,37 +2,29 @@
   <div id="mySidebar" class="sidebar">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
     @guest
-      <a class="" href="{{ route('welcome') }}">Inicio</a>
-      <br>
-    <a class="" href="{{ route('login') }}">Log In</a>
-    <a class="" href="{{ route('register') }}">Registrate</a>
+    <a class="" href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-2"></i>Log In</a>
+    <a class="" href="{{ route('register') }}"><i class="fas fa-plus-square mr-2"></i>Registrate</a>
     @else
-    <a class="" href="{{ route('home') }}">Inicio</a>
-    <a class="" href="{{ route('profile')}} ">Mi Perfil</a>
-    <a class="" href="#">Mis Cursos</a>
-    <a class="" href="{{ route('friends')}}">Mis Amigos</a>
-    <a class="" href="#buscar">Buscar</a>
-    <div class="input-group mx-3">
+    <a class="" href="{{ route('home') }}"><i class="fas fa-home mr-2"></i>Inicio</a>
+    <a class="" href="{{ route('profile')}}"><i class="fas fa-user mr-2"></i>Mi Perfil</a>
+    <a class="" href="#"><i class="fas fa-users mr-2"></i>Mis Cursos</a>
+    <a class="" href="{{ route('friends')}}"><i class="fas fa-chalkboard-teacher mr-2"></i>Mis Amigos</a>
+    <div class="input-group mx-3 pl-3 d-flex">
       @csrf
-      <input type="text" class="form-control" placeholder="Usuario, Curso..." aria-label="Recipient's username" aria-describedby="button-addon2">
+      <input class="w-50 rounded" type="text" class="form-control" placeholder="Usuario, Curso..." aria-label="Recipient's username" aria-describedby="button-addon2">
       <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
+        <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
     </div>
     </div>
-    {{-- <form class="form-inline ml-3">
-
-      <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
-      <button type="submit" class="m-auto botonJuan rounded py-1 pr-3 d-flex flex-wrap justify-content-center">Buscar</button>
-    </form> --}}
     <br>
     <a class="" href="{{ route('logout') }}"
        onclick="event.preventDefault();
-                document.getElementById('logout-form').submit();">
+                document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt mr-2"></i>
        {{ __('Logout') }}
     </a>
-    {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
-    </form> --}}
+    </form>
 
     @endguest
   </div>
@@ -44,30 +36,28 @@
   <div class="collapse navbar-collapse" id="navbarGrande">
     @guest
 
-      <a class="text-decoration-none text-secondary ml-3" href="{{ route('login') }}">Log In</a>
-      <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}">Registrate</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('login') }}"><i class="fas fa-sign-in-alt mr-2"></i>Log In</a>
+      <a class="text-decoration-none text-secondary ml-3"href="{{ route('register') }}"><i class="fas fa-plus-square mr-2"></i>Registrate</a>
     @else
-      <a class="text-decoration-none text-secondary ml-3" href="{{ route('home') }}">Inicio</a>
-      <a class="text-decoration-none text-secondary ml-3" href="{{ route('profile') }}">Mi Perfil</a>
-      <a class="text-decoration-none text-secondary ml-3" href="#">Mis Cursos</a>
-      <a class="text-decoration-none text-secondary ml-3" href="{{ route('friends')}}">Mis Amigos</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('home') }}"><i class="fas fa-home mr-2"></i>Inicio</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('profile')}}"><i class="fas fa-user mr-2"></i>Mi Perfil</a>
+      <a class="text-decoration-none text-secondary ml-3" href="#"><i class="fas fa-users mr-2"></i>Mis Cursos</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('friends')}}"><i class="fas fa-chalkboard-teacher mr-2"></i>Mis Amigos</a>
+      <div class="input-group input-group-sm ml-3 w-50">
+        @csrf
+        <input class="rounded" type="text" class="form-control" placeholder="Usuario, Curso..." aria-label="Recipient's username" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search"></i></button>
+      </div>
+      </div>
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('logout') }}"
          onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
+                  document.getElementById('logout-form').submit();"><i class="fas fa-sign-out-alt mr-2"></i>
          {{ __('Logout') }}
       </a>
-      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      {{-- <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
             @csrf
-      </form>
-      <form class="form-inline ml-3">
-        @csrf
-        <input class="col-form-label-sm form-control mr-sm-2" type="text" placeholder="Usuario,Curso..." aria-label="">
-        <button type="submit" class="m-auto botonJuan rounded py-1 d-flex flex-wrap justify-content-center">Buscar</button>
-      </form>
-      <!--<a id="" class="nav-link dropdown-tog" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              <img width="40px" style="border-radius:40%" src="{{--asset('storage/avatars/'.Auth::user()->avatar)--}}" alt="Avatar">
-          {{-- Auth::user()->nombres." ".Auth::user()->apellidos --}} <span class="caret"></span>
-      </a>-->
+      </form> --}}
     @endguest
   </div>
 </nav>
