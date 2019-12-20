@@ -82,19 +82,18 @@
                 {{"A ".$post->like." personas le gusta esto"}}
               @endif
             </small>
-              <div class="">
-                <a href="javascript:void(0)" class="" onclick="darMg({{$post->id}}, {{$post->like}})"><button class="btn btn-outline-primary" name="">Me Gusta!</button></a>
-              </div>
-                @if ($post->user_id == Auth::user()->id)
-                <div class="">
-                  <h4 class="mb-0"><a href="/editarPost/{{$value->id}}"  class="text-muted"><i class="fas fa-pen"></i></a></h4>
-                </div>
-                <div class="d-flex align-items-end">
-                  <h4 class="mb-0"><a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted"><i class="fas fa-trash-alt"></i></a></h4>
-
-                </div>
-                @else
-                @endif
+            <div class="d-flex align-items-center">
+              <a href="javascript:void(0)" class="text-muted" onclick="darMg({{$post->id}}, {{$post->like}})"><i class="far fa-heart"></i></a>
+            </div>
+            @if ($post->user_id == Auth::user()->id)
+            <div class="d-flex align-items-center">
+              <a href="/editarPost/{{$post->id}}"  class="text-muted"><i class="far fa-edit"></i></a>
+            </div>
+            <div class="d-flex align-items-center">
+              <a href="javascript:void(0)" onclick="borrarPost({{$post->id}})" class="text-muted"><i class="far fa-trash-alt"></i></a>
+            </div>
+            @else
+            @endif
           </div>
         </div>
       @endforeach

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
 use App\Post;
 use App\User;
 class PostController extends Controller
@@ -26,6 +27,7 @@ class PostController extends Controller
                 ->select('users.nombres','users.apellidos','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.like','posts.user_id')
                 ->join('users','users.id','=','posts.user_id')
                 ->where('user_id', '=', $id)
+                ->orderBy('posts.id','desc')
                 ->get();
      return view('profile')->with('posts', $posts);
   }
@@ -70,5 +72,16 @@ class PostController extends Controller
   public function returnEditView($id){
     $post = Post::find($id);
     return view('editarPost')->with('post',$post);
+  }
+
+  public function actualizarPost(Request $request){
+    $datos = $request;
+    $post = DB::table('posts')
+              ->where('id', $datos->id)
+              ->update(['titulo' => $datos->titulo,
+                        'contenido' => $datos->contenido
+                      ]);
+                      return redirect('/home');
+
   }
 }

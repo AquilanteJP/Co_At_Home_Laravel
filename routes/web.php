@@ -21,13 +21,14 @@ Auth::routes();
 Route::get('/home','PostController@index')->name('home')->middleware('auth');
 
 Route::get('/profile', 'PostController@userPosts')->name('profile');
-//No funciona todavia
+
+//Rutas Post
+Route::post('/crearPost', 'PostController@crearPost')->name('crearPost');
 Route::get('/editarPost/{id}','PostController@returnEditView')->name('editar');
+Route::post('/actualizarPost','PostController@actualizarPost')->name('actualizarPost');
 Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoDePost');
 Route::get('/darMg/{id}/{likes}','PostController@darMg')->name('darMg');
 
 Route::get('/test', function(){
   return Auth::user()->foto_usuario;
 });
-
-Route::post('/crearPost', 'PostController@crearPost')->name('crearPost');
