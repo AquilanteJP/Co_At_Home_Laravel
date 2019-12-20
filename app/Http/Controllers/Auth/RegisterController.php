@@ -73,7 +73,7 @@ class RegisterController extends Controller
       if (isset($data['foto_usuario'])) {
         $request = request();
         $imagen = $request->file('foto_usuario');
-        $nombreArchivo = uniqid($data['email'].'-'). '.' . $imagen->extension();
+        $nombreArchivo = $data['email'] . $imagen->extension();
         $imagen->storePubliclyAs('public/avatars',$nombreArchivo);
         return User::create([
             'nombres' => $data['nombres'],

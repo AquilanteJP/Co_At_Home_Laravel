@@ -10,7 +10,7 @@
     <a class="" href="{{ route('home') }}">Inicio</a>
     <a class="" href="{{ route('profile')}} ">Mi Perfil</a>
     <a class="" href="#">Mis Cursos</a>
-    <a class="" href="#">Mis Amigos</a>
+    <a class="" href="{{ route('friends')}}">Mis Amigos</a>
     <a class="" href="#buscar">Buscar</a>
     <div class="input-group mx-3">
       @csrf
@@ -50,7 +50,7 @@
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('home') }}">Inicio</a>
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('profile') }}">Mi Perfil</a>
       <a class="text-decoration-none text-secondary ml-3" href="#">Mis Cursos</a>
-      <a class="text-decoration-none text-secondary ml-3" href="#">Mis Amigos</a>
+      <a class="text-decoration-none text-secondary ml-3" href="{{ route('friends')}}">Mis Amigos</a>
       <a class="text-decoration-none text-secondary ml-3" href="{{ route('logout') }}"
          onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">

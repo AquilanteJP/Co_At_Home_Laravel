@@ -17,17 +17,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
+//Rutas Usuario
 Route::get('/home','PostController@index')->name('home')->middleware('auth');
-
-Route::get('/profile', 'PostController@userPosts')->name('profile');
+Route::get('/profile', 'PostController@userPosts')->name('profile')->middleware('auth');
 
 //Rutas Post
-Route::post('/crearPost', 'PostController@crearPost')->name('crearPost');
-Route::get('/editarPost/{id}','PostController@returnEditView')->name('editar');
-Route::post('/actualizarPost','PostController@actualizarPost')->name('actualizarPost');
-Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoDePost');
-Route::get('/darMg/{id}/{likes}','PostController@darMg')->name('darMg');
+Route::post('/crearPost', 'PostController@crearPost')->name('crearPost')->middleware('auth');
+Route::get('/editarPost/{id}','PostController@returnEditView')->name('editar')->middleware('auth');
+Route::post('/actualizarPost','PostController@actualizarPost')->name('actualizarPost')->middleware('auth');
+Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoDePost')->middleware('auth');
+Route::get('/darMg/{id}/{likes}','PostController@darMg')->name('darMg')->middleware('auth');
+
+//Ruta Amigos
+Route::get('/friends','AmigoController@mostrarAmigos')->name('friends')->middleware('auth');
 
 Route::get('/test', function(){
   return Auth::user()->foto_usuario;
