@@ -15,7 +15,7 @@ class AmigoController extends Controller
       $friends = DB::table('users')
                   ->leftJoin('amigos','users.id', '=', 'amigos.usuario2_id')
                   ->where('amigos.usuario1_id', '=' ,$id)
-                  ->get();           
+                  ->get();
       return view('friends')->with('friends',$friends);
     }
 }
