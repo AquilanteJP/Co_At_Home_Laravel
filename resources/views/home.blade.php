@@ -57,6 +57,7 @@
       {{-- listado de posts --}}
 
       @foreach ($posts as $post)
+
         <div class="card border mb-3 shadow-lg" id="{{$post->id}}">
           <div class="card-header d-flex">
             <div class="w-25 mr-3">
@@ -80,14 +81,15 @@
             <p class="card-text">{{ $post->contenido }}</p>
           </div>
           <div class="card-footer d-flex justify-content-between">
-            <small class="text-muted">
-              @if ($post->like == "0" || $post->like == null)
+            <small class="text-muted enterleave">
+              @if (count($post->likes) == 0 || $post->likes == null)
                 {{"A nadie le gusta esto"}}
-              @elseif ($post->like == "1")
-                {{"A ".$post->like." persona le gusta esto"}}
+              @elseif (count($post->likes) == 1)
+                A <a href="#">{{count($post->likes)}} persona</a> le gusta esto
               @else
-                {{"A ".$post->like." personas le gusta esto"}}
+                A <a href="#">{{count($post->likes)}} personas</a> le gusta esto
               @endif
+
             </small>
             <div class="d-flex align-items-center">
               <a href="javascript:void(0)" class="text-muted" onclick="darMg({{$post->id}}, {{$post->like}})"><i class="far fa-heart"></i></a>
@@ -105,8 +107,10 @@
         </div>
       @endforeach
     </div>
+    {{-- <div class="">
+      {{$posts->links()}}
+    </div> --}}
   </div>
-
 
 </div>
 @endsection

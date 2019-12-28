@@ -26,11 +26,11 @@ Route::post('/crearPost', 'PostController@crearPost')->name('crearPost')->middle
 Route::get('/editarPost{id}','PostController@returnEditView')->name('editar')->middleware('auth');
 Route::post('/actualizarPost','PostController@actualizarPost')->name('actualizarPost')->middleware('auth');
 Route::get('/borradoDePost/{id}','PostController@borradoDePost')->name('borradoDePost')->middleware('auth');
-Route::get('/darMg/{id}/{likes}','PostController@darMg')->name('darMg')->middleware('auth');
+Route::get('/darMg/{id}','PostController@darMg')->name('darMg')->middleware('auth');
 
 //Ruta Amigos
 Route::get('/friends','AmigoController@mostrarAmigos')->name('friends')->middleware('auth');
 
-Route::get('/test', function(){
-  return Auth::user()->foto_usuario;
-});
+
+//Ruta Prueba
+Route::get('/test', 'PostController@test')->name('test');
