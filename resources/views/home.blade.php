@@ -57,7 +57,6 @@
       {{-- listado de posts --}}
 
       @foreach ($posts as $post)
-
         <div class="card border mb-3 shadow-lg" id="{{$post->id}}">
           <div class="card-header d-flex">
             <div class="w-25 mr-3">
@@ -85,11 +84,12 @@
               @if (count($post->likes) == 0 || $post->likes == null)
                 {{"A nadie le gusta esto"}}
               @elseif (count($post->likes) == 1)
-                A <a href="#">{{count($post->likes)}} persona</a> le gusta esto
+                A <a href="#">{{$post->likes[0]['nombres']." ".$post->likes[0]['apellidos']}}</a> le gusta esto
               @else
-                A <a href="#">{{count($post->likes)}} personas</a> le gusta esto
+                 <a href="#"> <div class="w-25">
+                  <img src="storage\avatars\{{ $post->likes[0]['foto'] }}" class="w-25 rounded-circle" alt="">y {{count($post->likes) - 1}} personas mas
+                </div> </a> les gusta esto
               @endif
-
             </small>
             <div class="d-flex align-items-center">
               <a href="javascript:void(0)" class="text-muted" onclick="darMg({{$post->id}}, {{$post->like}})"><i class="far fa-heart"></i></a>

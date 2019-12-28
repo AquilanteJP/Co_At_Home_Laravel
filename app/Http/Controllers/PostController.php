@@ -19,12 +19,52 @@ class PostController extends Controller
                           ->orderBy('posts.id','desc')
                           ->get();
                            // ->paginate(5);
-                           $likes = Like::where('post_id', '37')
-                                               ->inRandomOrder()
-                                               ->take(3)
-                                               ->get();
-    return view('home')->with('posts', $posts)
-                        ->with('likes', $likes);
+                           // $likes = Like::select('userMG')
+                           // ->groupBy('post_id');
+  //return view('home')->with('posts', $posts);
+    //                     ->with('likes', $likes);
+    foreach ($posts as $post) {
+
+      if (count($post->likes) !== 0) {
+        $arrayDatos = [];
+          for ($i=0; $i <count($post->likes) ; $i++) {
+            $userLike = $post->likes[$i]["userMG"];
+            $datosUser = User::select('nombres', 'apellidos', 'foto_usuario')->where('id', $userLike)->get();
+            $arrayDeUser = [
+              'nombres' => $datosUser[0]['nombres'],
+              'apellidos' => $datosUser[0]['apellidos'],
+              'foto' => $datosUser[0]['foto_usuario']
+            ];
+            array_push($arrayDatos, $arrayDeUser);
+
+            }
+            $post->likes = $arrayDatos;
+          //   var_dump($post->likes);
+          // echo "fin del post <br>";
+        }
+        // elseif (count($post->likes) !== 0 && count($post->likes) < 3) {
+        //   $arrayDatos = [];
+        //     for ($i=0; $i <1 ; $i++) {
+        //       $userLike = $post->likes[$i]["userMG"];
+        //       $datosUser = User::select('nombres', 'apellidos', 'foto_usuario')->where('id', $userLike)->get();
+        //       $arrayDeUser = [
+        //         'nombres' => $datosUser[0]['nombres'],
+        //         'apellidos' => $datosUser[0]['apellidos'],
+        //         'foto' => $datosUser[0]['foto_usuario']
+        //       ];
+        //       array_push($arrayDatos, $arrayDeUser);
+        //
+        //       }
+        //       $post->likes = $arrayDatos;
+        //       // var_dump($post->likes);
+        //       // echo "fin del post <br>";
+        // }
+       else {
+         // echo "post sin likes <br>";
+      }
+
+    }
+    return view('home')->with('posts', $posts);
   }
 
   public function userPosts(){
@@ -94,44 +134,26 @@ class PostController extends Controller
 
   }
 
-  public function test(){
-    // $posts = Post::all();
-    // foreach ($posts as $post) {
-    //   $datos = $post->likes;
-    //   $idUser = $datos[0]['userMG'];
-    //    $nombreUser = User::where('id', $idUser)
-    //             ->select('users.nombres')
-    //             ->get();
-    //
-    //   return $nombreUser[0]['nombres'];
-    // }
-    // return $likes = Like::where('post_id', '37')
-    //                     ->inRandomOrder()
-    //                     ->take(3)
-    //                     ->get();
-    $likes = Like::all()->groupBy('post_id');
+  public function likes($likes){
 
-                        // ->inRandomOrder()
-                         // ->take(3);
-    $posts = Post::select('users.nombres','users.apellidos', 'users.tipo_registro','users.id', 'posts.id', 'users.foto_usuario','posts.titulo','posts.contenido','posts.user_id')
-                          ->join('users','posts.user_id','=','users.id')
-                          // ->join('likes', function($join){
-                          //   $join->on('posts.id', '=', 'likes.post_id')
-                          //        ->inRandomOrder()
-                          //       ->take(3);
-                          // })
-                                              // ->where('likes.post_id', 'posts.id')
-                                              // ->inRandomOrder()
-                                              // ->take(3)
+    if (count($post->likes) !== 0 && count($post->likes) > 3) {
+      $arrayDatos = [];
+        for ($i=0; $i <3 ; $i++) {
+          $userLike = $post->likes[$i]["userMG"];
+          $datosUser = User::select('nombres', 'apellidos', 'foto_usuario')->where('id', $userLike)->get();
+          $arrayDatos = array_push($arrayDatos, $datosUser);
+        }
+        var_dump($arrayDatos);
+      }
+      elseif (count($post->likes) !== 0 && count($post->likes) < 3) {
+        for ($i=0; $i <1 ; $i++) {
+          $userLike = $post->likes[$i]["userMG"];
+          echo  User::select('nombres', 'apellidos', 'foto_usuario')->where('id', $userLike)->get();
+        }
+        echo "<br>";
+      }
+     else {
 
-                           ->orderBy('posts.id','desc')
-                          ->get();
-                           // ->paginate(5);
-                           // $likes = Like::where('post_id', '37')
-                           //
-                           //                     ->get();
-                           return view('home')->with('posts', $posts)
-                                               ->with('likes', $likes);
-                                               // return $likes["4"];
-  }
+    }
+   }
 }

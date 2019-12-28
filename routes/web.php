@@ -33,4 +33,4 @@ Route::get('/friends','AmigoController@mostrarAmigos')->name('friends')->middlew
 
 
 //Ruta Prueba
-Route::get('/test', 'PostController@test')->name('test');
+Route::get('/likes{likes}', 'PostController@likes')->name('likes');
