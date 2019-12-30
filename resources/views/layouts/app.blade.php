@@ -29,7 +29,7 @@
 <body class="pt-5 bg-white">
     <div id="app" class="">
       @include('partials.header')
-      <main class="pt-5 colorFondo" id="main">
+      <main class="pt-5 px-0 colorFondo" id="main">
         @yield('content')
       </main>
       @include('partials.footer')

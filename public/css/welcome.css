@@ -9,5 +9,12 @@
 }
 
 .colorFondo{
-  background-color: #78909c;
+  background-color: #ffebee;
+}
+
+.bordeJuan{
+  border-color: #d32f2f;
+}
+.fondoPosts{
+  background-color: #90a4ae;
 }

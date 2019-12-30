@@ -53,11 +53,11 @@
             </form>
         </div>
     </div>
-    <div class="">
+    <div class="p-3 fondoPosts">
       {{-- listado de posts --}}
 
       @foreach ($posts as $post)
-        <div class="card border mb-3 shadow-lg" id="{{$post->id}}">
+        <div class="card bordeJuan border-bottom-0 border-right-0 border-left-0 rounded-0" id="{{$post->id}}">
           <div class="card-header d-flex">
             <div class="w-25 mr-3">
                 <img src="storage\avatars\{{ $post->foto_usuario }}" alt="" class="w-50 d-none d-lg-block rounded-circle">
@@ -80,15 +80,21 @@
             <p class="card-text">{{ $post->contenido }}</p>
           </div>
           <div class="card-footer d-flex justify-content-between">
-            <small class="text-muted enterleave">
+            <small class="text-muted w-50">
               @if (count($post->likes) == 0 || $post->likes == null)
                 {{"A nadie le gusta esto"}}
               @elseif (count($post->likes) == 1)
                 A <a href="#">{{$post->likes[0]['nombres']." ".$post->likes[0]['apellidos']}}</a> le gusta esto
               @else
-                 <a href="#"> <div class="w-25">
-                  <img src="storage\avatars\{{ $post->likes[0]['foto'] }}" class="w-25 rounded-circle" alt="">y {{count($post->likes) - 1}} personas mas
-                </div> </a> les gusta esto
+                A <a href="#">{{$post->likes[0]['nombres']." ".$post->likes[0]['apellidos']}} + {{count($post->likes) - 1}} personas les gusta esto</a>
+                 {{-- <a href="#" class="row">
+                   <div class="w-25 ml-3">
+                     <img src="storage\avatars\{{ $post->likes[0]['foto'] }}" class="w-50 rounded-circle mr-2" alt="">
+                   </div>
+                   <div class="w-25">
+                     <h6 class=" align-bottom"></h6>
+                   </div>
+                 </a> --}}
               @endif
             </small>
             <div class="d-flex align-items-center">
